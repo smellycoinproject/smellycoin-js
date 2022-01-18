@@ -94,7 +94,7 @@ A block is added to the block list if:
 3. The hash is correct (calculated block hash == block.hash);
 4. The difficulty level of the proof-of-work challenge is correct (difficulty at blockchain index _n_ < block difficulty);
 5. All transactions inside the block are valid;
-6. The sum of output transactions are equal the sum of input transactions + 50 coins representing the reward for the block miner;
+6. The sum of output transactions are equal the sum of input transactions + 0 coins representing the reward for the block miner;
 7. Check if there is a double spending in that block
 8. There is only 1 fee transaction and 1 reward transaction.
 
@@ -233,18 +233,18 @@ Only the public key is exposed as the user's address.
 
 #### Miner
 
-The Miner gets the list of pending transactions and creates a new block containing the transactions. By configuration, every block has at most 2 transactions in it.
+The Miner gets the list of pending transactions and creates a new block containing the transactions. By configuration, every block has at most 1000 transactions in it.
 
 Assembling a new block:
 1. From the list of unconfirmed transaction selected candidate transactions that are not already in the blockchain or is not already selected;
 1. Get the first two transactions from the candidate list of transactions;
-2. Add a new transaction containing the fee value to the miner's address, 1 satoshi per transaction;
-3. Add a reward transaction containing 50 coins to the miner's address;
+2. Add a new transaction containing the fee value to the miner's address;
+3. Add a reward transaction containing 0 coins to the miner's address;
 4. Prove work for this block;
 
 ##### Proof-of-work
 
-The proof-of-work is done by calculating the 14 first hex values for a given transaction hash and increases the nonce until it reaches the minimal difficulty level required. The difficulty increases by an exponential value (power of 5) every 5 blocks created. Around the 70th block created it starts to spend around 50 seconds to generate a new block with this configuration. All these values can be tweaked.
+The proof-of-work is done by calculating the 14 first hex values for a given transaction hash and increases the nonce until it reaches the minimal difficulty level required. The difficulty increases by an exponential value (power of 5) every 150 blocks.
 
 ```javascript
 const difficulty = this.blockchain.getDifficulty();
@@ -256,7 +256,7 @@ do {
 } while (blockDifficulty >= difficulty);
 ```
 
-The `this.blockchain.getDifficulty()` returns the hex value of the current blockchain's index difficulty. This value is calculated by powering the initial difficulty by 5 every 5 blocks.
+The `this.blockchain.getDifficulty()` returns the hex value of the current blockchain's index difficulty. This value is calculated by powering the initial difficulty by 5 every 150 blocks
 
 The `block.getDifficulty()` returns the hex value of the first 14 bytes of block's hash and compares it to the currently accepted difficulty. 
 
