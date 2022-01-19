@@ -1,9 +1,9 @@
 FROM node:6
 
-VOLUME /naivecoin
+VOLUME /smellycoin
 
-WORKDIR /naivecoin
+WORKDIR /smellycoin
 
-ENTRYPOINT node bin/naivecoin.js
+ENTRYPOINT node bin/smellycoin.js -a 0.0.0.0
 
 EXPOSE 3001
