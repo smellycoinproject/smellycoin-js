@@ -499,7 +499,7 @@ Options:
 
 ```sh
 # Cloning repository
-$ git clone https://github.com/Smellyslab/smellycoin/
+$ git clone https://github.com/smellycoinproject/smellycoin/
 $ cd smellycoin
 $ npm install
 
