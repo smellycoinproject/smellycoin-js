@@ -15,7 +15,7 @@
     * Miner
 * HTTP API interface to control everything
 * Synchronization of blockchain and transactions
-* Simple proof-of-work (The difficulty increases every 150000 blocks starting 120)
+* Simple proof-of-work (The difficulty increases every 150000 blocks)
 * Addresses creation using a deterministic approach [EdDSA](https://en.wikipedia.org/wiki/EdDSA)
 * Data is persisted to a folder
 
