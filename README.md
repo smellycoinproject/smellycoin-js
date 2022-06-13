@@ -1,5 +1,8 @@
 # Smellycoin - a fork of naivecoin
 
+## How to install and other bug fixes
+[INSTALL](https://github.com/smellycoinproject/smellycoin/wiki/INSTALL)
+
 
 
 
